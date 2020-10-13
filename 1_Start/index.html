@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>jQuery</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="main">
+            <h1>Learning jQuery</h1>
+            <div id="first-block">
+                <p>
+                    When we working with webpage project, & we want to add
+                    jQuery init . we have to connect jQuery to it. <br /></br><b
+                        >We have two option to connect jQuery:</b
+                    >
+                    <br /></br><strong>first:</strong> download jQuery and add to the
+                    project using script tag<br />
+                    <strong>second:</strong>
+                    Use the cdn link
+                </p>
+                <ul>
+                    <li>Lorem.</li>
+                    <li>Est.</li>
+                    <li>Repellat?</li>
+                    <li>Veniam!</li>
+                </ul>
+            </div>
+            <div id="second-block"></div>
+        </div>
+        <!-- jQuery cdn link  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="./script.js"></script>
+        <script>
+            // custom function declaration system in jQuery
+            // (function($) {
+            //     $.fn.yourMethodName = function() {
+            //         add your code hare,
+            //         you can use the object that using this function with the word 'this'
+            // example: this id('id')
+            //     }
+            // })
+
+            // every time when we implementing jQuery in our webpage
+            // we have to declare this :
+            $(document).ready(() => {
+                console.log('i am ready');
+                $('h1').click(function (){
+                    $('li:nth-child(4)').css('color', 'red')
+                })
+            });
+            // we can select html node with the help of jQuery selector .
+            // jQuery selector like css selector.
+            // css all selector valid in jQuery
+
+            // jQuery have some built in method that helps us to select faster
+
+            /* 
+            find(): Finds all matching elements
+            children(): It is same ad find, but moves only one level down
+            closest(): moves up the DOM tree, until it finds the matching element
+            parent(): parent also moves up the DdOM tree but to a single level
+            next(): moves down and targets the immediately following sibling
+            prev(): moves just like .next, but moves up, targeting the immediately preceding sibling
+            siblings(): It targets move up and down , targeting the siblings
+            first(): Gets the first elements from the selected set 
+            last(): Gets the last element from the selected set
+            */
+            
+        </script>
+    </body>
+</html>
