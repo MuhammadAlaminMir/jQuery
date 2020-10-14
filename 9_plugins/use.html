@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="./alertify/themes/alertify.bootstrap.css"
+        />
+        <link rel="stylesheet" href="./alertify/themes/alertify.core.css" />
+        <link rel="stylesheet" href="./alertify/themes/alertify.default.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="root">
+            <h1>Learning plugins</h1>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./alertify/js/alertify.js"></script>
+        <script>
+            // confirm dialog
+            alertify.confirm('hey how are you', function (e) {
+                if (e) {
+                    // user clicked "ok"
+                } else {
+                    // user clicked "cancel"
+                }
+            });
+            // prompt dialog
+            alertify.prompt(
+                'Message',
+                function (e, str) {
+                    // str is the input text
+                    if (e) {
+                        // user clicked "ok"
+                    } else {
+                        // user clicked "cancel"
+                    }
+                },
+                'Default Value'
+            );
+            // custom OK and Cancel label
+            // default: OK, Cancel
+            alertify.set({
+                labels: {
+                    ok: 'Accept',
+                    cancel: 'Deny',
+                },
+            });
+            // button labels will be "Accept" and "Deny"
+            alertify.confirm('Message');
+        </script>
+    </body>
+</html>
