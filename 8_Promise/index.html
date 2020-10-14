@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h3>jquery Promise</h3>
+
+        <p>
+            Promise(): -- It is an important method from Deferred object. this
+            method returns an object with almost the same interface then the
+            Deferred.
+        </p>
+        <p>
+            Promise() method is useful when you want to give to the calling API
+            something to subscribe to but not the ability to resolve or reject
+            the deferred
+        </p>
+        <p>
+            <b
+                >In jquery .ajax() method returns a promise, and it has three
+                main methods:</b
+            >
+            <li>
+                done() - this is default callback for handling successful ajax
+                operations
+            </li>
+            <li>
+                fail() - this is default callback for handling rejected
+                operations
+            </li>
+            <li>
+                always() - this method executes regardlss of weather the
+                operation is done or fall
+            </li>
+        </p>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function done(res) {
+                const result = res;
+                console.log(res);
+            }
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/posts',
+                type: 'GET',
+                dataType: 'json',
+                timeout: 2500,
+                success: (result) => {
+                    console.log('complete with success and data');
+                },
+                error: (err) => {
+                    console.log('complete with error', err);
+                },
+                complete: () => {
+                    console.log('complete');
+                },
+            })
+                .done((res) => {
+                    console.log(res);
+                    done(res);
+                })
+                .fail((err) => {
+                    console.log(err);
+                });
+        </script>
+    </body>
+</html>

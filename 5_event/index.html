@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root">
+            <h2>jquery event</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
+                amet explicabo labore dolores deserunt repellat voluptates,
+                nobis, sit doloremque excepturi molestias reprehenderit eaque!
+                Repudiandae inventore incidunt dolorem eveniet fugiat quisquam?
+            </p>
+            <button>click</button>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            /*  Whenever an event is triggered, the event handler function receives one argument i,e, an event object that is 
+            normalized across browsers. this object has many useful properties like:
+            type  >> the event type, eg 'click'
+            which >> the button or key that was pressed
+            target >> the originating element.
+            pageX >> the document mouse X coordinate
+            pageY >> the document mouse y coordinate
+            */
+
+            $(document).ready(() => {
+                $('button').bind('click', () => {
+                    console.log('i am working');
+                });
+                $('p').on({
+                    mouseenter: function () {
+                        console.log('i am enter');
+                    },
+                    mouseleave: function () {
+                        console.log('i am leaving');
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>

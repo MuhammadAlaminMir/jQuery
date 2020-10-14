@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>form</title>
+    </head>
+    <body>
+        <h2>Registration</h2>
+        <form action="">
+            Name: <input type="text" /><br /><br />
+            Email: <input type="email" /><br /><br />
+            Password: <input type="password" /><br /><br />
+            <input type="radio" id="female" name="gender" value="female" />
+
+            <input type="radio" id="other" name="gender" value="other" />
+
+            <br /><br />
+            <textarea name="" id="" cols="10" rows="5"></textarea>
+            <button type="reset">Reset</button><br /><br />
+            <button type="submit" id="submit">Submit</button><br /><br />
+            I accept the terms
+            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" />
+
+            <select id="cars" name="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                $('#submit').click(() => {
+                    if ($('input:text').val() == '') {
+                        alert('you have to fill the textbox');
+                    }
+                    const email = $('input[type=email]').val();
+                    const reg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                    if (reg.test(email)) {
+                        return true;
+                    } else {
+                        false;
+                    }
+
+                    ('alamin@gmail.com');
+                    $('input:password').val('alamin');
+                    $('input:radio:nth(1)').is(':checked');
+                    $('input:checkbox').is(':checked');
+                    $('#cars').val();
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root">
+            <div class="container"></div>
+            <p>
+                Jquery provides $.ajax() method that abstracts away painful
+                browser differences. this method offers full-featured ajax
+                functionalities
+            </p>
+            <ul>
+                <h3>The simple convenience methods in jquery are:</h3>
+                <li>$.get()</li>
+                <li>$.getScript()</li>
+                <li>$.getJSON</li>
+                <li>$.post</li>
+                <li>$.().load()</li>
+            </ul>
+            <button>start</button>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                $('button').click(() => {
+                    $.ajax({
+                        url: 'https://jsonplaceholder.typicode.com/posts',
+                        type: 'GET',
+                        dataType: 'json',
+                        timeout: 2500,
+                        success: (result) => {
+                            console.log(
+                                'complete with success and data',
+                                result
+                            );
+                        },
+                        error: (err) => {
+                            console.log('complete with error', err);
+                        },
+                        complete: () => {
+                            console.log('complete');
+                        },
+                    });
+                    $.get(
+                        'https://jsonplaceholder.typicode.com/users',
+                        {},
+                        function (res) {
+                            console.log('completed', res);
+                        },
+                        'json'
+                    );
+                    $.getJSON(
+                        'https://jsonplaceholder.typicode.com/users',
+                        {},
+                        function (res) {
+                            console.log('its done', res);
+                        }
+                    );
+                });
+                $('.container ').load('./load.html');
+            });
+        </script>
+    </body>
+</html>

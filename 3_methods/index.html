@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .blue {
+                color: blue;
+            }
+            .tomato {
+                color: tomato;
+            }
+            .box,
+            .animate-box {
+                display: block;
+                height: 200px;
+                width: 200px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <h1>jQuery methods</h1>
+            <ul>
+                <li>Lorem.</li>
+                <li><b>Sed.</b></li>
+                <li class="middle">Dolores!</li>
+                <li>Deserunt.</li>
+                <li>Quia.</li>
+            </ul>
+            <p class="box">hey</p>
+            <button class="btn">show or hide</button>
+
+            <h2>jQuery animation</h2>
+            <p class="animate-box">hey</p>
+            <button class="animate-btn">show or hide</button>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            // jQuery have each method that similar to forEach method in js, and it can also iterate li tag
+
+            // its have also eq and filter method to filter out elements
+
+            /* 
+            JQuery Effects 
+            jQuery have methods like hide(), show() its like css display: none, or block
+            we can give then parameter to set how faster that thing show or hide
+
+            we also have :
+
+            >>fadeIn()
+            >>fadeOut()
+            >>fadeTo(speed, opacity, callback)
+            >>slideDown()
+            >>slideUp()
+            >>slideToggle()
+            
+            animate: (properties:[,duration][,easing][,complete])
+            */
+            $(document).ready(function () {
+                const al = [1, 3, 4, 5, 6];
+                $.each(al, function (index, value) {
+                    // console.log(value);
+                });
+                $('li').each((index, value) => {
+                    // console.log(value);
+                });
+                $('li').eq(1).toggleClass('tomato');
+                $('li').filter('.middle').toggleClass('tomato');
+                $('li').not('.middle').addClass('blue');
+                $('li').has('b').addClass('tomato');
+                $('.btn').click(() => {
+                    $('.box').slideToggle('slow');
+                });
+                $('.animate-btn').click(() => {
+                    $('.animate-box').animate(
+                        {
+                            width: '500px',
+                            height: '300px',
+                        },
+                        2000
+                    );
+                });
+            });
+        </script>
+    </body>
+</html>
